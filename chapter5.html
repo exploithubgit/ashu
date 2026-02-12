@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chapter 5 - My Promises</title>
+    <link rel="stylesheet" href="shared.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #1a0a14 0%, #000000 50%, #0a0514 100%);
+        }
+
+        .promise-box {
+            background: linear-gradient(135deg, rgba(136, 19, 55, 0.3), rgba(244, 63, 94, 0.1));
+            border: 2px solid var(--rose-500);
+            border-radius: 20px;
+            padding: 3rem;
+            margin: 3rem 0;
+            backdrop-filter: blur(10px);
+            box-shadow: 0 0 40px rgba(244, 63, 94, 0.3);
+            animation: fadeInUp 0.8s forwards;
+            opacity: 0;
+        }
+
+        .promise-content {
+            font-size: 1.5rem;
+            color: var(--rose-200);
+            line-height: 2.2;
+            text-align: center;
+        }
+
+        .promise-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .promise-emphasis {
+            color: var(--rose-300);
+            font-weight: 600;
+            font-size: 1.7rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="music-control" id="musicControl">🎵</div>
+    <audio id="bgMusic" loop><source src="music.mp3" type="audio/mpeg"></audio>
+
+    <div class="container">
+        <div class="story-header">
+            <div class="chapter-number">Chapter Five</div>
+            <h1 class="chapter-title">What I Promise You</h1>
+            <div class="divider"></div>
+        </div>
+
+        <div class="story-content">
+            <p class="paragraph delay-1" style="text-align: center;">When you're in a dark place, I sometimes feel helpless because of the distance. Part of me wants to fix everything. Part of me feels like I should do more because I'm your boyfriend.</p>
+
+            <p class="paragraph delay-2" style="text-align: center; font-size: 1.5rem; color: var(--rose-300); margin: 2rem 0;">But I've learned something:</p>
+
+            <p class="paragraph delay-3">You are not a child. You are strong. If you need help, you will ask.</p>
+
+            <p class="paragraph delay-4">I'll be there. In the middle of the storm. In the middle of the night. Whenever you need me.</p>
+
+            <p class="paragraph delay-5">If just my presence is enough, then I will give you that.</p>
+
+            <div class="promise-box delay-6">
+                <div class="promise-content">
+                    <p>A lots of forehead kisses for you,</p>
+                    <p class="promise-emphasis">Forehead kisses aren't romance to me.</p>
+                    <p class="promise-emphasis">They are promises.</p>
+                    <p style="margin-top: 2rem;">And I don't promise what I can't fulfill.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="page-navigation">
+        <a href="chapter4.html" class="nav-btn prev">←</a>
+        <a href="chapter6.html" class="nav-btn next">→</a>
+    </div>
+
+    <script src="shared.js"></script>
+</body>
+</html>

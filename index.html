@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For You My Ashu ❤️</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+        :root { --rose-300: #fda4af; --rose-400: #fb7185; --rose-500: #f43f5e; --rose-600: #e11d48; --rose-700: #be123c; --rose-900: #881337; }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Crimson Text', Georgia, serif; background: linear-gradient(135deg, #000000 0%, #1a0a0f 50%, #000000 100%); color: #fafafa; min-height: 100vh; display: flex; align-items: center; justify-content: center; overflow-x: hidden; position: relative; }
+        .heart-particle { position: fixed; color: var(--rose-500); font-size: 20px; opacity: 0; animation: floatUp linear infinite; pointer-events: none; z-index: 1; }
+        @keyframes floatUp { 0% { transform: translateY(0) rotate(0deg); opacity: 0; } 10% { opacity: 0.7; } 90% { opacity: 0.7; } 100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; } }
+        .music-control { position: fixed; top: 2rem; right: 2rem; z-index: 1000; cursor: pointer; background: rgba(244, 63, 94, 0.2); border: 2px solid var(--rose-500); border-radius: 50%; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; transition: all 0.3s; }
+        .music-control:hover { background: var(--rose-500); transform: scale(1.1); }
+        .container { text-align: center; padding: 2rem; max-width: 900px; position: relative; z-index: 10; }
+        .heart-icon { font-size: 6rem; margin-bottom: 2rem; animation: heartbeat 1.5s ease-in-out infinite; filter: drop-shadow(0 0 30px rgba(244, 63, 94, 0.8)); }
+        @keyframes heartbeat { 0%, 100% { transform: scale(1); } 50% { transform: scale(1.2); } }
+        h1 { font-size: 4rem; color: var(--rose-300); margin-bottom: 2rem; font-family: 'Playfair Display', serif; text-shadow: 0 0 50px rgba(244, 63, 94, 0.6); animation: fadeIn 1s 0.3s forwards; opacity: 0; }
+        @keyframes fadeIn { to { opacity: 1; } }
+        .message { font-size: 1.6rem; line-height: 2; color: #d1d5db; margin-bottom: 3rem; animation: fadeIn 1s 0.6s forwards; opacity: 0; }
+        .message .highlight { color: var(--rose-300); font-style: italic; font-weight: 600; }
+        .start-button { display: inline-block; padding: 1.5rem 3rem; background: linear-gradient(135deg, var(--rose-600), var(--rose-900)); color: white; text-decoration: none; border-radius: 50px; font-size: 1.4rem; font-weight: bold; font-family: 'Playfair Display', serif; transition: all 0.4s; box-shadow: 0 5px 20px rgba(244, 63, 94, 0.3); animation: fadeIn 1s 0.9s forwards; opacity: 0; }
+        .start-button:hover { transform: translateY(-5px); box-shadow: 0 10px 40px rgba(244, 63, 94, 0.5); }
+        .date { margin-top: 3rem; font-size: 1rem; color: #6b7280; font-style: italic; letter-spacing: 2px; animation: fadeIn 1s 1.2s forwards; opacity: 0; }
+        @media (max-width: 768px) { h1 { font-size: 2.5rem; } .message { font-size: 1.3rem; } .heart-icon { font-size: 4rem; } }
+    </style>
+</head>
+<body>
+    <div class="music-control" id="musicControl" title="Click to play/pause music">🎵</div>
+    <audio id="bgMusic" loop><source src="music.mp3" type="audio/mpeg"></audio>
+    <div class="container">
+        <div class="heart-icon">❤️</div>
+        <h1>For You My Ashu</h1>
+        <p class="message">I know you deserve <span class="highlight">the best Valentine's gift</span>,<br>but I felt I wanted to write you a letter.<br><br>So here we are.</p>
+        <a href="chapter1.html" class="start-button">Read My Letter →</a>
+        <p class="date">Valentine's Day 2026</p>
+    </div>
+    <script>
+        setInterval(() => { const heart = document.createElement('div'); heart.className = 'heart-particle'; heart.innerHTML = '❤'; heart.style.left = Math.random() * 100 + '%'; heart.style.animationDuration = (Math.random() * 3 + 5) + 's'; heart.style.fontSize = (Math.random() * 10 + 15) + 'px'; document.body.appendChild(heart); setTimeout(() => heart.remove(), 8000); }, 2000);
+        const music = document.getElementById('bgMusic'); const musicControl = document.getElementById('musicControl'); let isPlaying = false;
+        musicControl.addEventListener('click', () => { if (isPlaying) { music.pause(); musicControl.innerHTML = '🎵'; isPlaying = false; localStorage.setItem('musicPlaying', 'false'); } else { music.play(); musicControl.innerHTML = '🔊'; isPlaying = true; localStorage.setItem('musicPlaying', 'true'); localStorage.setItem('musicTime', music.currentTime); } });
+        window.addEventListener('load', () => { const wasPlaying = localStorage.getItem('musicPlaying') === 'true'; const savedTime = parseFloat(localStorage.getItem('musicTime')) || 0; music.currentTime = savedTime; if (wasPlaying) { music.play().then(() => { musicControl.innerHTML = '🔊'; isPlaying = true; }).catch(() => {}); } });
+        window.addEventListener('beforeunload', () => { if (isPlaying) { localStorage.setItem('musicTime', music.currentTime); } });
+    </script>
+</body>
+</html>

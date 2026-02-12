@@ -1,0 +1,28 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap');
+:root { --rose-300: #fda4af; --rose-400: #fb7185; --rose-500: #f43f5e; --rose-600: #e11d48; --rose-700: #be123c; --rose-900: #881337; }
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body { font-family: 'Crimson Text', Georgia, serif; background: linear-gradient(to bottom, #000000, #0f0f0f, #000000); color: #fafafa; line-height: 1.8; min-height: 100vh; overflow-x: hidden; }
+.music-control { position: fixed; top: 2rem; right: 2rem; z-index: 1000; cursor: pointer; background: rgba(244, 63, 94, 0.2); border: 2px solid var(--rose-500); border-radius: 50%; width: 60px; height: 60px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem; transition: all 0.3s; }
+.music-control:hover { background: var(--rose-500); transform: scale(1.1); }
+.heart-particle { position: fixed; color: var(--rose-500); font-size: 20px; opacity: 0; animation: floatUp linear infinite; pointer-events: none; z-index: 1; }
+@keyframes floatUp { 0% { transform: translateY(0) rotate(0deg); opacity: 0; } 10% { opacity: 0.7; } 90% { opacity: 0.7; } 100% { transform: translateY(-100vh) rotate(360deg); opacity: 0; } }
+.page-navigation { position: fixed; bottom: 3rem; left: 50%; transform: translateX(-50%); display: flex; gap: 2rem; z-index: 100; }
+.nav-btn { width: 50px; height: 50px; border-radius: 50%; background: rgba(244, 63, 94, 0.2); border: 2px solid var(--rose-500); display: flex; align-items: center; justify-content: center; cursor: pointer; transition: all 0.3s; font-size: 1.5rem; color: var(--rose-500); text-decoration: none; }
+.nav-btn:hover { background: var(--rose-500); color: white; transform: scale(1.1); }
+.container { max-width: 1000px; margin: 0 auto; padding: 6rem 2rem 10rem 2rem; position: relative; z-index: 10; }
+.story-header { text-align: center; margin-bottom: 4rem; animation: fadeInUp 0.8s forwards; }
+.chapter-number { font-size: 1rem; color: var(--rose-400); letter-spacing: 3px; text-transform: uppercase; margin-bottom: 1rem; }
+.chapter-title { font-size: 3.5rem; color: var(--rose-300); margin-bottom: 1.5rem; font-family: 'Playfair Display', serif; }
+.divider { width: 100px; height: 3px; background: linear-gradient(to right, transparent, var(--rose-500), transparent); margin: 0 auto; }
+.story-content { max-width: 800px; margin: 0 auto; }
+.paragraph { font-size: 1.4rem; line-height: 2; color: #d1d5db; margin-bottom: 2rem; animation: fadeInUp 0.8s forwards; opacity: 0; }
+.highlight { display: block; font-size: 1.6rem; color: var(--rose-300); font-weight: 600; font-style: italic; margin: 3rem 0; padding: 2rem; background: rgba(136, 19, 55, 0.2); border-left: 4px solid var(--rose-500); border-radius: 0 10px 10px 0; animation: fadeInUp 0.8s forwards; opacity: 0; }
+.quote-box { background: linear-gradient(135deg, rgba(136, 19, 55, 0.3), rgba(244, 63, 94, 0.1)); border: 2px solid var(--rose-500); border-radius: 15px; padding: 3rem; margin: 3rem 0; position: relative; backdrop-filter: blur(10px); animation: fadeInUp 0.8s forwards; opacity: 0; }
+.quote-text { font-size: 1.5rem; color: var(--rose-200); font-style: italic; text-align: center; line-height: 1.8; }
+.memory-card { background: rgba(255, 255, 255, 0.03); border: 1px solid rgba(244, 63, 94, 0.3); border-radius: 15px; padding: 2.5rem; margin: 3rem 0; transition: all 0.4s; animation: fadeInUp 0.8s forwards; opacity: 0; }
+.memory-card:hover { background: rgba(255, 255, 255, 0.05); border-color: var(--rose-500); transform: translateY(-5px); box-shadow: 0 10px 30px rgba(244, 63, 94, 0.2); }
+.memory-title { font-size: 1.8rem; color: var(--rose-300); margin-bottom: 1rem; font-family: 'Playfair Display', serif; }
+.memory-text { font-size: 1.2rem; color: #9ca3af; line-height: 1.8; }
+.delay-1 { animation-delay: 0.2s; } .delay-2 { animation-delay: 0.4s; } .delay-3 { animation-delay: 0.6s; } .delay-4 { animation-delay: 0.8s; } .delay-5 { animation-delay: 1s; } .delay-6 { animation-delay: 1.2s; } .delay-7 { animation-delay: 1.4s; } .delay-8 { animation-delay: 1.6s; }
+@keyframes fadeInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+@media (max-width: 768px) { .chapter-title { font-size: 2.5rem; } .paragraph { font-size: 1.2rem; } .container { padding: 4rem 1.5rem 8rem 1.5rem; } .music-control { top: 1rem; right: 1rem; width: 50px; height: 50px; font-size: 1.2rem; } }
