@@ -1,0 +1,25 @@
+<!DOCTYPE html><html lang='en'><head><meta charset='UTF-8'><meta name='viewport' content='width=device-width,initial-scale=1.0'>
+<title>Timeline</title><link rel='stylesheet' href='shared.css'><style>body{background:linear-gradient(to bottom,#000,#2d0a1f,#000)}
+.tl-title{font-size:4.3rem;color:var(--rose-300);margin-bottom:1.4rem;text-shadow:0 0 30px rgba(244,63,94,.5);text-align:center;font-family:'Playfair Display',serif}
+.tl-sub{font-size:1.4rem;color:var(--rose-200);font-style:italic;text-align:center;margin-bottom:4rem}
+.wrap{max-width:1000px;margin:0 auto;position:relative}
+.line{position:absolute;left:50%;transform:translateX(-50%);width:3px;height:100%;background:linear-gradient(to bottom,transparent,var(--rose-500),var(--rose-700),var(--rose-500),transparent)}
+.item{position:relative;margin-bottom:4.5rem;animation:fadeInUp .8s forwards;opacity:0}
+.item:nth-child(1){animation-delay:.2s}.item:nth-child(2){animation-delay:.4s}.item:nth-child(3){animation-delay:.6s}.item:nth-child(4){animation-delay:.8s}.item:nth-child(5){animation-delay:1s}.item:nth-child(6){animation-delay:1.2s}
+.dot{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:18px;height:18px;background:var(--rose-500);border-radius:50%;border:4px solid #000;box-shadow:0 0 20px rgba(244,63,94,.8);z-index:2;animation:dotPulse 2s ease-in-out infinite}
+@keyframes dotPulse{0%,100%{box-shadow:0 0 20px rgba(244,63,94,.8)}50%{box-shadow:0 0 35px rgba(244,63,94,1)}}
+.card{background:linear-gradient(135deg,rgba(136,19,55,.4),rgba(244,63,94,.18));border:2px solid var(--rose-600);border-radius:16px;padding:2rem;width:45%;box-shadow:0 5px 20px rgba(244,63,94,.18);transition:.3s;transform-style:preserve-3d}
+.card:hover{transform:scale(1.04) translateY(-5px);box-shadow:0 10px 40px rgba(244,63,94,.32)}
+.item:nth-child(odd) .card{margin-right:auto}
+.item:nth-child(even) .card{margin-left:auto}
+.date{color:var(--rose-400);font-weight:700;letter-spacing:1px;text-transform:uppercase;font-size:1.02rem;margin-bottom:.5rem}
+.event{color:var(--rose-200);font-size:1.55rem;font-family:'Playfair Display',serif;margin-bottom:.5rem}
+.desc{color:#9ca3af;font-size:1.08rem;line-height:1.7}
+@media(max-width:768px){.line{left:20px}.dot{left:20px}.card{width:calc(100% - 60px);margin-left:60px!important}.tl-title{font-size:3rem}}
+</style></head><body>
+<div class='music-control' id='musicControl' title='Tap to play music'>🎵</div>
+<div class='music-hint'>Tap 🎵 for music</div>
+<audio id='bgMusic' preload='auto' loop><source src='music.mp3' type='audio/mpeg'></audio>
+<div class='container'><div class='story-content'><div class='tl-title'>Since July 2025</div><div class='tl-sub'>Our journey together</div><div class='wrap'><div class='line'></div><div class='item'><div class='dot'></div><div class='card'><div class='date'>July 2025</div><div class='event'>The Beginning</div><div class='desc'>The girl with the MacBook. Two closed books, and something felt safe.</div></div></div><div class='item'><div class='dot'></div><div class='card'><div class='date'>The First Days</div><div class='event'>Slowly, properly</div><div class='desc'>We built something calm instead of rushing what mattered.</div></div></div><div class='item'><div class='dot'></div><div class='card'><div class='date'>The Fear</div><div class='event'>Learning to stay</div><div class='desc'>We chose honesty and found our way back.</div></div></div><div class='item'><div class='dot'></div><div class='card'><div class='date'>The Healing</div><div class='event'>Being fully seen</div><div class='desc'>We shared the parts we hide. You made vulnerability feel safe.</div></div></div><div class='item'><div class='dot'></div><div class='card'><div class='date'>Now</div><div class='event'>Still choosing you</div><div class='desc'>Not perfect. Not pretending. Just real.</div></div></div><div class='item'><div class='dot'></div><div class='card'><div class='date'>Forever</div><div class='event'>Our streak</div><div class='desc'>Every Valentine's Day ahead. A streak that never ends.</div></div></div></div></div></div>
+<div class='page-navigation'><a href='chapter9.html' class='nav-btn prev'>←</a><a href='finale.html' class='nav-btn next'>→</a></div>
+<script src='shared.js'></script></body></html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html><html><head><meta charset='utf-8'><meta name='viewport' content='width=device-width,initial-scale=1'><title>For You My Ashu</title>
+<link href='https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap' rel='stylesheet'>
+<style>:root{--rose-300:#fda4af;--rose-500:#f43f5e;--rose-600:#e11d48;--rose-900:#881337}*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'Crimson Text',Georgia,serif;background:linear-gradient(135deg,#000,#1a0a0f,#000);color:#fafafa;min-height:100vh;display:flex;align-items:center;justify-content:center;overflow:hidden}
+.music-control{position:fixed;top:1.2rem;right:1.2rem;z-index:1000;cursor:pointer;background:rgba(244,63,94,.18);border:2px solid var(--rose-500);border-radius:50%;width:56px;height:56px;display:flex;align-items:center;justify-content:center;font-size:1.4rem;transition:.25s;animation:pulse 2s ease-in-out infinite}
+@keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+.music-control:hover{background:var(--rose-500);transform:scale(1.12)!important}
+.music-hint{position:fixed;top:1.3rem;right:5.2rem;z-index:1000;color:#cbd5e1;font-size:.95rem;background:rgba(0,0,0,.55);border:1px solid rgba(255,255,255,.12);padding:.5rem .75rem;border-radius:12px}
+.wrap{text-align:center;max-width:900px;padding:2rem;position:relative;z-index:10}
+.icon{font-size:6rem;margin-bottom:1.5rem;animation:beat 1.5s ease-in-out infinite}
+@keyframes beat{0%,100%{transform:scale(1)}50%{transform:scale(1.15)}}
+h1{font-family:'Playfair Display',serif;font-size:3.7rem;color:var(--rose-300);margin-bottom:1.4rem;text-shadow:0 0 30px rgba(244,63,94,.6)}
+.msg{font-size:1.5rem;line-height:2;color:#d1d5db;margin-bottom:2.2rem}
+.read-time{font-size:1rem;color:var(--rose-400);font-style:italic;margin-bottom:1.5rem}
+.btn{display:inline-block;padding:1.2rem 2.6rem;border-radius:50px;background:linear-gradient(135deg,var(--rose-600),var(--rose-900));color:#fff;text-decoration:none;font-family:'Playfair Display',serif;font-weight:700;font-size:1.25rem;transition:.25s;box-shadow:0 5px 20px rgba(244,63,94,.3)}
+.btn:hover{transform:translateY(-4px);box-shadow:0 10px 40px rgba(244,63,94,.5)}
+.date{margin-top:2.2rem;color:#6b7280;letter-spacing:2px;font-style:italic}
+@media(max-width:768px){h1{font-size:2.5rem}.msg{font-size:1.25rem}.icon{font-size:4.5rem}.music-hint{display:none}}
+</style></head><body>
+<div class='music-control' id='musicControl'>🎵</div><div class='music-hint'>Tap 🎵 for music</div>
+<audio id='bgMusic' preload='auto' loop><source src='music.mp3' type='audio/mpeg'></audio>
+<div class='wrap'>
+  <div class='icon'>❤️</div>
+  <h1>For You My Ashu</h1>
+  <div class='msg'>I know you deserve the best Valentine's gift,<br>but I wanted to write you a letter.<br><br>So here we are.</div>
+  <div class='read-time'>~ 8 minutes of love ~</div>
+  <a class='btn' href='chapter1.html'>Read My Letter →</a>
+  <div class='date'>Valentine's Day 2026</div>
+</div>
+<script>
+// Check if before Valentine's Day
+const now=new Date();
+const valentines=new Date('2026-02-14T00:00:00');
+if(now<valentines){window.location.href='lock.html';}
+
+const m=document.getElementById('bgMusic'),b=document.getElementById('musicControl');let p=0;const s=()=>b.textContent=p?'🔊':'🎵';
+try{m.currentTime=parseFloat(localStorage.getItem('musicTime'))||0;}catch(e){}
+async function play(){try{await m.play();p=1;localStorage.setItem('musicPlaying','true');s();}catch(e){p=0;localStorage.setItem('musicPlaying','false');s();}}
+function pause(){m.pause();p=0;localStorage.setItem('musicPlaying','false');s();}
+b.addEventListener('click',()=>p?pause():play());
+setInterval(()=>{if(p)localStorage.setItem('musicTime',m.currentTime);},1000);
+if(localStorage.getItem('musicPlaying')==='true')play();s();
+</script></body></html>
